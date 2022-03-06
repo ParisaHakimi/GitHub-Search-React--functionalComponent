@@ -12,6 +12,7 @@ import NotFound from "./components/pages/NotFound";
 function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+  const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
 
   //search users
@@ -32,6 +33,14 @@ function App() {
     setUser(res.data);
   };
 
+  //get repos
+  const getRepos = async (userName) => {
+    const res = await axios(
+      `https://api.github.com/users/${userName}/repos?per_page=5&sort=created:asc&CLIENT_ID=561b493cd9319e39f5fe&CLIENT_SECRET=6276e6f7259c2e2d7a14aa86861c760ef2bef2a1`
+    );
+    setRepos(res.data);
+  };
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -48,9 +57,17 @@ function App() {
           />
           <Route
             path="/user/:login"
-            element={<User user={user} getSingleUser={getSingleUser} />}
+            element={
+              <User
+                user={user}
+                getSingleUser={getSingleUser}
+                getRepos={getRepos}
+                repos={repos}
+              />
+            }
           />
           <Route path="/about" element={<About />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

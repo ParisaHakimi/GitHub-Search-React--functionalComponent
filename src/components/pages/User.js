@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-const User = ({ user, getSingleUser }) => {
+import Repos from "../users/Repos";
+
+const User = ({ user, getSingleUser, getRepos, repos }) => {
   const params = useParams();
   useEffect(() => {
     getSingleUser(params.login);
+    getRepos(params.login);
   }, []);
   const {
     login,
@@ -78,6 +81,7 @@ const User = ({ user, getSingleUser }) => {
           <span className="badge bg-info mx-2">public gists{public_gists}</span>
         </div>
       </div>
+      <Repos repos={repos} />
     </div>
   );
 };
