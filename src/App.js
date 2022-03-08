@@ -41,6 +41,11 @@ function App() {
     setRepos(res.data);
   };
 
+  // clear users
+  const clearUsers = () => {
+    setUsers([]);
+  };
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -50,7 +55,11 @@ function App() {
             path="/"
             element={
               <>
-                <SearchUser searchUsers={searchUsers} users={users} />
+                <SearchUser
+                  searchUsers={searchUsers}
+                  users={users}
+                  clearUsers={clearUsers}
+                />
                 <Users users={users} loading={loading} />
               </>
             }
