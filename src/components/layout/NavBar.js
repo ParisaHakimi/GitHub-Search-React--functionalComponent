@@ -2,8 +2,8 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="bg-danger text-white navbar navbar-expand-sm">
-      <div className="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+      <div class="container-fluid navi">
         <div className="logo">
           <a
             href="/"
@@ -13,15 +13,26 @@ const NavBar = () => {
             <div>GitHub Finder</div>
           </a>
         </div>
-        <div className="collapse navbar-collapse me-auto">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
-            <li className="nav-item menu">
-              <a href="/" className="nav-link  menu-link">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse me-auto" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item menu">
+              <a class="nav-link menu-link" aria-current="page" href="/">
                 Home
               </a>
             </li>
-            <li className="nav-item menu">
-              <a href="/about" className="nav-link  menu-link">
+            <li class="nav-item menu">
+              <a class="nav-link menu-link" href="/about">
                 About
               </a>
             </li>
