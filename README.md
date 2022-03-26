@@ -1,4 +1,4 @@
-# GitHub search is a responsive react app using GitHub API that finds any GitHub users.
+# "GitHub user Finder" is a responsive react app using GitHub API that finds any GitHub users.
 
 Icons are utilized from `Fontawesome` and mostly styled and gridded by `BootStrap`.
 Organized components and routers in modern React fashion.
